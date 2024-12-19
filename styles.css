@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .content {
@@ -11,112 +12,91 @@ body {
 footer {
     background-color: #333;
     color: white;
-    /* text-align: center; */
     padding: 20px 0;
-    position: fixed;
     width: 100%;
+    height: 100%;
     bottom: 0;
 }
 
-p{
-    font-size: 40px;
-}
-
-input{
+input {
     margin: 7px;
     width: 392px;
     height: 56px;
     background-color: #333;
     color: #c9c9c9;
-    font-size: 30px;
-    border: none; /* Remove todas as bordas padrão */
-    border-bottom: 1px solid transparent; /* Adiciona uma borda transparente para manter a altura */
-    position: relative; /* Necessário para posicionar o ::after */
+    border: none;
+    border-bottom: 1px solid transparent;
+    position: relative;
 }
-
 
 input:focus {
     outline: none;
-    border-bottom-color: gray; /* Muda a cor da borda transparente para cinza */
+    border-bottom-color: gray;
 }
 
 input:focus::after {
     content: '';
     position: absolute;
-    bottom: -1px; /* Posiciona a linha logo abaixo do input */
+    bottom: -1px;
     left: 0;
     width: 100%;
     height: 1px;
-    background-color: gray; /* Cor da linha */
+    background-color: gray;
 }
 
-.form-group{
+.form-group {
     display: flex;
-}
-#empresa {
-    width: 810px;
+    flex-direction: column;
 }
 
-.input{
+.input {
     border-bottom: 1px solid white;
     font-style: italic;
 }
-#ajuda {
-    width: 810px;
-    height: 75px;
+
+.campoNome,
+.campoEmail,
+.campoEmpresa,
+.campoAjuda {
+    margin-left: 0;
+    margin-bottom: 15px;
 }
 
-.campoNome{
-    margin-left: 0px;
-    margin-bottom: 15px;
+form {
+    padding: 5px;
 }
 
-.campoEmail{
-    margin-left: 0px;
-    margin-bottom: 15px;
-}
-.campoEmpresa{
-    margin-left: 0px;
-    margin-bottom: 15px;
-}
-.campoAjuda{
-    margin-left: 0px;
-    margin-bottom: 15px;
-}
-.form{
-    padding: 5px
-}
-.right-side{
+.right-side {
     text-align: left;
 }
 
 .right-side h3 {
-    font-size: 30px;
     margin-left: 8px;
 }
+
 .footer-content {
-    margin: 0 auto;
-    max-width: 1440px;
     width: 100%;
-    
+    max-width: 425px;
 }
 
-footer h3{
+
+footer h3 {
     text-align: left;
-    margin-left: 0px;
+    margin-left: 0;
 }
 
-footer h3 a{
+footer h3 a {
     color: white;
 }
 
-#linkOgilvy{
+#linkOgilvy {
     border: none;
     border-bottom: 2px solid white;
-    width: 1429px;
+    width: 415px;
     padding-bottom: 15px;
 }
-button{
+
+button {
     border: none;
     border-bottom: 1px solid white;
     color: white;
@@ -125,36 +105,51 @@ button{
     font-size: 20px;
     cursor: pointer;
 }
-.form-content{
-    display: flex;
-    justify-content: space-between;
+
+.success-message,
+.error-message {
+    display: none;
+    font-size: 1.5em;
+    margin-left: .6em;
 }
-.logo{
+
+.success-message {
+    color: rgb(68, 224, 68);
+}
+
+.error-message {
+    color: rgb(243, 47, 73);
+}
+
+.logo {
     width: 461px;
     height: 218px;
     text-align: left;
 }
 
-.logo h3{
-    font-size: 60px;
+.logo h3 {
+    font-size: 40px;
 }
 
-.logo p{
-    font-size: 32px;
+.logo p {
+    font-size: 20px;
 }
+
 .socials {
     display: flex;
+    flex-direction: column;
     font-size: 24px;
-    justify-content: space-between;
     width: 500px;
-    padding: 0px;
+    padding: 0;
     margin: 0;
     opacity: 0.8;
 }
-.socials p{
+
+.socials p {
     margin: 0;
 }
-.content-socials{
+
+.content-socials {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -165,10 +160,10 @@ img {
     max-width: 28px;
 }
 
-.icons-jussi{
+.icons-jussi {
     display: flex;
     max-width: 170px;
-    gap: 30px;
+    gap: 10px;
     align-items: center;
 }
 
@@ -177,10 +172,66 @@ img {
     text-decoration: none;
 }
 
-.privacy{
+.privacy {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     position: absolute;
     right: 0;
+}
+
+@media (min-width: 1200px) {
+    footer {
+        height: auto;
+        position: fixed;
+    }
+    #linkOgilvy {
+        border: none;
+        border-bottom: 2px solid white;
+        width: 1429px;
+        padding-bottom: 15px;
+    }
+    .footer-content {
+        max-width: 1440px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .form-content {
+        display: flex;
+        justify-content: space-between;
+    }
+    .form-group {
+        flex-direction: row;
+        font-size: 30px;
+    }
+    form {
+        font-size: 30px;
+    }
+    .socials {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    #empresa,
+    #ajuda {
+        width: 810px;
+    }
+    #ajuda {
+        height: 75px;
+    }
+    .right-side h3,
+    input {
+        font-size: 30px;
+    }
+    p {
+        font-size: 40px;
+    }
+    .logo h3 {
+        font-size: 60px;
+    }
+    .logo p {
+        font-size: 32px;
+    }
+    .icons-jussi {
+        gap: 30px;
+    }
 }

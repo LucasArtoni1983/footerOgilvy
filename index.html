@@ -19,30 +19,37 @@
                 <div class="right-side">
                     <h3 id="entreContato">Entre em contato</h3>
     
-                    <div class="form">
+                    <form class="form" method="post" id="contactForm">
                         <div>
                             <div class="form-group">
                                 <div class="campoNome">
                                     <label for="nome">Nome completo</label><br>
-                                    <input type="text" id="nome" class="input" placeholder="Digite seu nome">
+                                    <input type="text" id="nome" class="input" placeholder="Digite seu nome" maxlength="25" minlength="2" required>
                                 </div>
     
                                 <div class="campoEmail">
-                                    <label for="Email">Email</label><br>
-                                    <input type="text" id="email" class="input" placeholder="Digite seu email">
+                                    <label for="email">Email</label><br>
+                                    <input type="email" id="email" class="input" placeholder="Digite seu email" maxlength="30" required>
                                 </div>
                             </div>
                             
                             <div class="campoEmpresa">
                                 <label for="empresa">Empresa</label><br>
-                                <input type="text" id="empresa" class="input" placeholder="Digite sua empresa">
-                            </div>                        
+                                <input type="text" id="empresa" class="input" placeholder="Digite sua empresa" maxlength="100" required> 
+                            </div>
                             <div class="campoAjuda">
-                                <label for="Como podemos te ajudar?">Como podemos te ajudar?</label><br>
-                                <input type="text" id="ajuda" class="input" placeholder="Digite aqui">
+                                <label for="ajuda">Como podemos te ajudar?</label><br>
+                                <input id="ajuda" class="input" placeholder="Digite aqui" required>
                             </div>                        
                         </div>
-                        <button>Enviar</button>
+                        <button type="submit">Enviar</button>
+
+                    </form>
+                    <div id="successMessage" class="success-message">
+                        <h5>Suas informações foram enviadas com sucesso! Entraremos em contato em breve.</h5>
+                    </div>
+                    <div id="errorMessage" class="error-message">
+                        <h5>Informações inválidas, por favor revise-as</h5>
                     </div>
                 </div>
             </div>
